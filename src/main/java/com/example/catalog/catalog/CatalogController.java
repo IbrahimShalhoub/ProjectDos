@@ -48,13 +48,13 @@ public class CatalogController {
         System.out.println("In Catalog Server");
         catalogService.infoEdit(s);
 
-
     }
     @PostMapping("/cashedit/{s}")
     public void databaseedit(@PathVariable Long s){
         System.out.println("In Catalog Server");
         catalogService.updatebase(s);
     }
+
 
 
 }

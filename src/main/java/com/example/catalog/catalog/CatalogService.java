@@ -55,10 +55,12 @@ public class CatalogService {
         HttpEntity<String> entity = new HttpEntity<>(s.toString(), headers);
 
         ResponseEntity<List> responseEntityStr = restTemplate.postForEntity(url, entity, List.class);
-        ////////////
-        url="http://localhost:8090/cashedit/"+s;
+        //////////////////////////////
+        url="http://localhost:8082/cashedit/"+s;
         responseEntityStr = restTemplate.postForEntity(url, entity, List.class);
+
     }
+
     @Transactional
     public void updatebase(Long s) {
 
