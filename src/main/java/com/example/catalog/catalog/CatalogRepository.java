@@ -10,19 +10,25 @@ import java.util.List;
 
 @Repository
 public interface CatalogRepository extends JpaRepository <Catalog,Long> {
-    @Query("SELECT r.id,r.Title from Catalog  r")
-    List getAll();
-    @Query("select r.id,r.Title from Catalog r where r.Subject=:Subject")
+
+    @Query("select r.id,r.Quantity,r.Price,r.Title,r.Subject from Catalog r where r.Subject=:Subject")
     List getTopic(@Param("Subject")String subject);
     @Query("select r.Title,r.Quantity,r.Price from Catalog r")
     List getAllInfo();
-    @Query("select r.Title,r.Quantity,r.Price from Catalog r where r.id=:Id")
+    @Query("select r.id,r.Quantity,r.Price,r.Title,r.Subject from Catalog r where r.id=:Id")
     List getInfo(@Param("Id")Long id);
 
-    @Query("select r.Quantity from Catalog r where r.id=:Id")
-    String getInfoQ(@Param("Id")Long s);
+    @Query("select r.id,r.Quantity,r.Price,r.Title,r.Subject from Catalog r where r.id=:Id")
+    List getInfoQ(@Param("Id")Long s);
     @Modifying
     @Query("Update Catalog r set r.Quantity =r.Quantity-1 where r.id=:Id")
     void infoEdit(@Param("Id") Long s);
+
+    @Modifying
+    @Query("Update Catalog r set r.Quantity =r.Quantity-1 where r.id=:Id")
+    void upd(@Param("Id") Long s);
+
+    @Query("select r.id,r.Subject,r.Title,r.Quantity,r.Price from Catalog r")
+    List fid();
 }
 
