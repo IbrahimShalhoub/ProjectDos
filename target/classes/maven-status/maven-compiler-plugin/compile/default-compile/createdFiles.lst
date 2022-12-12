@@ -1,0 +1,6 @@
+com\example\catalog\catalog\SQLDialect.class
+com\example\catalog\CatalogApplication.class
+com\example\catalog\catalog\Catalog.class
+com\example\catalog\catalog\CatalogController.class
+com\example\catalog\catalog\CatalogRepository.class
+com\example\catalog\catalog\CatalogService.class
