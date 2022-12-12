@@ -36,7 +36,7 @@ public class OrderService {
 
         if(q>0) {
             orderRepository.save(new Order(a,1));
-            url = "http://localhost:8091/dataedit/"+a;
+            url = "http://localhost:8084/dataedit/"+a;
             HttpHeaders headers = new HttpHeaders();
             // set `content-type` header
             headers.setContentType(MediaType.APPLICATION_JSON);
@@ -46,7 +46,7 @@ public class OrderService {
 
             ResponseEntity<List> responseEntityStr = restTemplate.
                     postForEntity(url, entity, List.class);
-            //////////
+            ///////////
             //url = "http://192.168.56.103:8082/infoedit/"+a;
 //            url = "http://localhost:8082/infoedit/"+a;
             url = "http://localhost:8090/infoedit/"+a;
